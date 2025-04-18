@@ -1,68 +1,80 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
-  margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  margin: 0;
+  background: linear-gradient(-45deg, #001220, #FF6600, #002B50, #FFB366, #004080, #FF8000, #0066CC, #000000, #66A3FF);
+  background-size: 400% 400%;
+  animation: gradient 20s ease infinite;
+  color: white;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.stopWatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  color: white;
+}
+
+.display {
+  font-family: monospace;
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+  text-shadow: 3px 3px 10px #000000, 0 0 20px #0066CC;
+}
+
+.controls button {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 5px;
+  min-width: 125px;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: white;
+  transition: background-color 0.5s ease, transform 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.controls .start {
+  background: linear-gradient(145deg, #28a745, #218838);
+  box-shadow: 0 0 10px #28a745, inset 0 0 5px #28a745;
+}
+
+.controls .stop {
+  background: linear-gradient(145deg, #dc3545, #c82333);
+  box-shadow: 0 0 10px #dc3545, inset 0 0 5px #dc3545;
+}
+
+.controls .reset {
+  background: linear-gradient(145deg, #0066cc, #004080);
+  box-shadow: 0 0 10px #0066cc, inset 0 0 5px #0066cc;
+}
+
+.controls button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+@media (max-width: 600px) {
+  .controls button {
+    font-size: 1rem;
+    padding: 8px 16px;
+    min-width: 100px;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+
+  .display {
+    font-size: 3rem;
   }
 }
